@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tesla-drain-detective"
+version = "0.1.0"
+description = "Get alerted when your parked Tesla loses too much charge overnight — with the culprit (Sentry Mode, climate keeper, Cabin Overheat Protection) identified automatically"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Raphael Malikian", email = "rtmalikian@gmail.com" }]
+keywords = ["tesla", "fleet-api", "phantom-drain", "vampire-drain", "sentry-mode", "battery-health", "home-automation"]
+dependencies = [
+    "requests>=2.31",
+    "python-dotenv>=1.0",
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Home Automation",
+]
+
+[project.scripts]
+tcc-drain = "tesla_drain_detective.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/rtmalikian/tesla-drain-detective"
+Issues = "https://github.com/rtmalikian/tesla-drain-detective/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
